@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        .container{
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+
+        }
+        .item {
+            margin: 0 5px 0 5px;
+            padding: 0 50px 0 50px;
+            display: flex;
+            width: 150px;
+            min-height: 50px;
+            align-items: center;
+
+            border-radius: 5px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div id ='root'>
+
+</div>
+<script>
+     const root = document.getElementById('root')
+    // const getUserNumber = (name,phone)=>{
+    //     const user = document.createElement('div')
+    //     const userName = document.createElement('div')
+    //     const userPhone = document.createElement('div')
+    //     user.className += 'container'
+    //     userName.innerText = (name)
+    //     userName.className += ' item';
+    //     userPhone.className += ' item';
+    //     userPhone.innerText = `number: ${phone}`
+    //     user.appendChild(userName)
+    //     user.appendChild(userPhone)
+    //     root.append(user)
+    //
+    // }
+    // const getUsers = ()=>{
+    //     fetch('https://jsonplaceholder.typicode.com/users')
+    //         .then(response => response.json())
+    //         .then(json => json.map((item) => getUserNumber(item.name,item.phone)))
+    // }
+    // getUsers()
+     const imagesToHtml = (url)=>{
+         const image = document.createElement('img')
+         image.src = url
+
+         root.append(image)
+
+     }
+     const getImages = ()=>{
+         fetch('https://jsonplaceholder.typicode.com/photos/1')
+             .then(response => response.json())
+             .then(json => json.map((item)=> imagesToHtml(item.url)))
+     }
+
+     getImages()
+
+
+
+
+</script>
+</body>
